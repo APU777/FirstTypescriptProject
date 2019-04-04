@@ -1,0 +1,71 @@
+﻿body {
+    background-color: darkslateblue !important;
+}
+
+h5 {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+#Stats {
+    font-size: 25px;
+}
+
+#Battle {
+    border-radius: 25px;
+    border: 2px solid;
+    background-color: #b200ff;
+    padding: 20px;
+}
+
+#basicText {
+    padding: 10px;
+    background-color: white;
+    color: black;
+    font-size: 20px;
+    font-family: monospace;
+ }
+
+
+.pulse {
+    display: block;
+    margin-left: 10px;
+    cursor: pointer;
+    animation: none;
+}
+
+    .pulse:hover {
+        animation: pulse 2s infinite;
+    }
+
+@-webkit-keyframes pulse {
+    0% {
+        -webkit-box-shadow: 0 0 0 0 rgb(255, 0, 0);
+    }
+
+    70% {
+        -webkit-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    }
+
+    100% {
+        -webkit-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        -moz-box-shadow: 0 0 0 0 rgb(255, 0, 0);
+        box-shadow: 0 0 0 0 rgb(255, 0, 220);
+    }
+
+    70% {
+        -moz-box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+        box-shadow: 0 0 0 20px rgba(204,169,44, 0);
+    }
+
+    100% {
+        -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+        box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    }
+}

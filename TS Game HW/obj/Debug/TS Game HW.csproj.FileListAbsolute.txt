@@ -1,0 +1,7 @@
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\bin\TypeScriptHTMLApp1.dll.config
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\bin\TypeScriptHTMLApp1.dll
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\bin\TypeScriptHTMLApp1.pdb
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\obj\Debug\TS Game HW.csprojAssemblyReference.cache
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\obj\Debug\TS Game HW.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\obj\Debug\TypeScriptHTMLApp1.dll
+C:\Users\User\Desktop\stepHTML\30.03.2019\TS Game HW\TS Game HW\obj\Debug\TypeScriptHTMLApp1.pdb
