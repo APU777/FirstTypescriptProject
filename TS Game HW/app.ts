@@ -48,8 +48,11 @@ function selectorHero(typeHero: string): Unit {
             return new Archer();
     }
 }
-
-function startBattle(fP: Unit, sP: Unit) {
+const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+function startBattle(fP: Unit, sP: Unit): void {
+    $("#basicText").text(null);
     let battle: Battlefield = new Battlefield();
     while (true) {
         $("#basicText").append("<strong>" + fP.Name + ": " + fP.Health + "hp<strong/> was attacked by <strong>" + sP.Name + ": " + sP.Health + "hp<strong/> for " + battle.Attack(sP.Attack, fP.Health, fP.Armour) + "damage. <br/><br/>");
@@ -68,15 +71,84 @@ function startBattle(fP: Unit, sP: Unit) {
 }
 
 window.onload = () => {
+    let $firstPlayer: Unit = null;
+    let $secondPlayer: Unit = null;
+    let fCheck: boolean = false;
+    let sCheck: boolean = false;
 
-    
-    $("#VS").on("click", function () {
-        let $firstPlayer: Unit = selectorHero($("#First .active").find('img').attr("alt"));
-        let $secondPlayer: Unit = selectorHero($("#Second .active").find('img').attr("alt"));
+    $("#First").on("click", function (event) {
+        $firstPlayer = selectorHero($("#First .active").find('img').attr("alt"));
+        $("#name").text("Name_left: " + $firstPlayer.Name);
+        $("#hp").text("Health_left: " + $firstPlayer.Health);
+        $("#dmg").text("Attack_left: " + $firstPlayer.Attack);
+        $("#arm").text("Armour_left: " + $firstPlayer.Armour);
+        fCheck = true;
+    });
+    $("#Second").on("click", function (event) {
+        $secondPlayer = selectorHero($("#Second .active").find('img').attr("alt"));
+        $("#name").text("Name_right: " + $secondPlayer.Name);
+        $("#hp").text("Health_right: " + $secondPlayer.Health);
+        $("#dmg").text("Attack_right: " + $secondPlayer.Attack);
+        $("#arm").text("Armour_right: " + $secondPlayer.Armour);
+        sCheck = true;
+    });
+
+
+    $("#firstPrev").on("click", function (event) {
+        sleep(1000).then(() => {
+            $firstPlayer = selectorHero($("#First .active").find('img').attr("alt"));
+            $("#name").text("Name_left: " + $firstPlayer.Name);
+            $("#hp").text("Health_left: " + $firstPlayer.Health);
+            $("#dmg").text("Attack_left: " + $firstPlayer.Attack);
+            $("#arm").text("Armour_left: " + $firstPlayer.Armour);
+            fCheck = true;
+        })
+    });
+    $("#firstNext").on("click", function (event) {
+        sleep(1000).then(() => {
+            $firstPlayer = selectorHero($("#First .active").find('img').attr("alt"));
+            $("#name").text("Name_right: " + $firstPlayer.Name);
+            $("#hp").text("Health_right: " + $firstPlayer.Health);
+            $("#dmg").text("Attack_right: " + $firstPlayer.Attack);
+            $("#arm").text("Armour_right: " + $firstPlayer.Armour);
+            fCheck = true;
+        });
+    });
+
+ 
+    $("#secondPrev").on("click", function (event) {
+        sleep(1000).then(() => {
+            $secondPlayer = selectorHero($("#Second .active").find('img').attr("alt"));
+            $("#name").text("Name_right: " + $secondPlayer.Name);
+            $("#hp").text("Health_right: " + $secondPlayer.Health);
+            $("#dmg").text("Attack_right: " + $secondPlayer.Attack);
+            $("#arm").text("Armour_right: " + $secondPlayer.Armour);
+            sCheck = true;
+        })
+    });
+    $("#secondNext").on("click", function (event) {
+        sleep(1000).then(() => {
+            $secondPlayer = selectorHero($("#Second .active").find('img').attr("alt"));
+            $("#name").text("Name_right: " + $secondPlayer.Name);
+            $("#hp").text("Health_right: " + $secondPlayer.Health);
+            $("#dmg").text("Attack_right: " + $secondPlayer.Attack);
+            $("#arm").text("Armour_right: " + $secondPlayer.Armour);
+            sCheck = true;
+        })
+    });
+
+   
+    $("#VS").on("click", function (event) {
+        if ($firstPlayer === null || fCheck === false) {
+            $firstPlayer = selectorHero($("#First .active").find('img').attr("alt"));
+        }
+        if ($secondPlayer === null || sCheck === false) {
+            $secondPlayer = selectorHero($("#Second .active").find('img').attr("alt"));
+        }
         $firstPlayer.Name += "_One";
         $secondPlayer.Name += "_Two";
-         startBattle($firstPlayer, $secondPlayer);
-    })
-
-
+        startBattle($firstPlayer, $secondPlayer);
+        fCheck = false;
+        sCheck = false;
+    });
 }
